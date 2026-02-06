@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Baccarat - Casino</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Game Container -->
+  <div id="game-container">
+    <div class="game-overlay">
+
+      <!-- Header -->
+      <div class="game-header">
+        <div class="header-left">
+          <button id="btn-stats" class="btn-stats-header">Stats</button>
+          <button id="btn-reset" class="btn-reset-header">Reset</button>
+        </div>
+        <div class="points-badge">
+          <span class="points-label">Balance:</span>
+          <span id="points-display">10,000 P</span>
+        </div>
+      </div>
+
+      <!-- Main Game Area -->
+      <div class="game-main">
+        <div style="width:100%; max-width:700px;">
+
+          <!-- Dealer Section -->
+          <div class="dealer-section">
+            <div class="dealer-portrait">
+              <div class="dealer-avatar">
+                <img id="dealer-image" src="" alt="Dealer" style="display:none;">
+                <div class="dealer-avatar-placeholder">D</div>
+              </div>
+              <div id="dealer-name" class="dealer-name-badge">Dealer</div>
+            </div>
+
+            <!-- Dialog Bubble -->
+            <div id="dialog-bubble" class="dialog-bubble">
+              <p id="dialog-text"></p>
+            </div>
+          </div>
+
+          <!-- Cards Area -->
+          <div class="cards-area">
+            <!-- Player Side -->
+            <div class="card-side">
+              <div class="side-label side-label-player">
+                <span>PLAYER</span>
+              </div>
+              <div id="player-cards" class="cards-row"></div>
+              <div id="player-score" class="score-display">
+                <span class="score-value-player"></span>
+              </div>
+            </div>
+
+            <!-- VS Divider -->
+            <div class="vs-divider">
+              <div class="vs-line"></div>
+              <span class="vs-text">VS</span>
+            </div>
+
+            <!-- Banker Side -->
+            <div class="card-side">
+              <div class="side-label side-label-banker">
+                <span>BANKER</span>
+              </div>
+              <div id="banker-cards" class="cards-row"></div>
+              <div id="banker-score" class="score-display">
+                <span class="score-value-banker"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result Overlay -->
+          <div id="result-overlay" class="result-overlay hidden">
+            <div id="result-game-text"></div>
+            <div id="result-user-text"></div>
+            <div id="result-payout" style="display:none;"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Fixed Bottom Control Panel -->
+      <div id="control-panel" class="control-panel">
+        <div class="control-inner">
+
+          <!-- Betting Controls -->
+          <div id="betting-controls" class="betting-controls">
+            <!-- Bet Type Selection -->
+            <div class="bet-type-row">
+              <button class="bet-type-btn active" data-type="player">
+                Player
+                <span class="bet-ratio">1:1</span>
+              </button>
+              <button class="bet-type-btn" data-type="tie">
+                Tie
+                <span class="bet-ratio">8:1</span>
+              </button>
+              <button class="bet-type-btn" data-type="banker">
+                Banker
+                <span class="bet-ratio">0.95:1</span>
+              </button>
+            </div>
+
+            <!-- Bet Amount -->
+            <div class="bet-amount-row">
+              <span class="bet-label">Bet:</span>
+              <span id="bet-amount-display">0</span>
+            </div>
+
+            <!-- Chips -->
+            <div id="chips-container"></div>
+
+            <!-- Action Buttons -->
+            <div class="action-row">
+              <button id="btn-clear" class="btn-action btn-clear">Clear</button>
+              <button id="btn-allin" class="btn-action btn-allin">All In</button>
+              <button id="btn-deal" class="btn-action btn-deal" disabled>DEAL</button>
+            </div>
+
+            <!-- Bet Info -->
+            <div id="bet-info"></div>
+          </div>
+
+          <!-- Dealing Info -->
+          <div id="dealing-info" class="dealing-info">
+            <div class="dealing-text">Dealing cards...</div>
+          </div>
+
+          <!-- Result Info -->
+          <div id="result-info" class="result-info">
+            <div class="result-info-text">Next game starting shortly...</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Stats Modal -->
+  <div id="stats-modal" class="stats-modal hidden">
+    <div class="stats-panel">
+      <div class="stats-header">
+        <div class="stats-title">Statistics</div>
+        <button id="stats-close" class="stats-close-btn">&times;</button>
+      </div>
+      <div id="stats-content"></div>
+    </div>
+  </div>
+
+  <!-- Scripts in dependency order (no ES modules for file:// compatibility) -->
+  <script src="js/config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/game-engine.js"></script>
+  <script src="js/ui-controller.js"></script>
+
+</body>
+</html>
